@@ -1,0 +1,8 @@
+.DS_Store
+.env
+Gemfile.lock
+/.ruby_lsp/
+/videos/
+/.bundle/
+/tmp/
+log/
