@@ -1,16 +1,22 @@
 # frozen_string_literal: true
 
-require_relative 'studio/configuration'
-require_relative 'studio/video'
+require 'fileutils'
+require 'json'
+require 'openai'
+require 'zeitwerk'
 
-# A simple way to interface with AI video models
 module Studio
-  DEFAULT_PROMPT = 'A calico cat playing a piano on stage'
-  DEFAULT_VIDEO_ID = 'video_68ea55568c3481909803d8419082908c0a4b607f1758781e'
+  Loader = Zeitwerk::Loader.new
+  Loader.push_dir(File.join(__dir__, 'studio'), namespace: self)
+  Loader.setup
 
   class << self
     def video(...)
       Video.new(...)
+    end
+
+    def models
+      Models.instance
     end
 
     def configure

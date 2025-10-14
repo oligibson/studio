@@ -1,22 +1,23 @@
 # frozen_string_literal: true
 
-require 'openai'
-require_relative 'utils'
-
 # A simple way to interface with AI video models
 module Studio
   # Represents a conversation with a video genetrating ai model
   class Video
     include Utils
 
-    def initialize(output_dir: nil)
+    def initialize(model: nil, provider: nil, output_dir: nil)
+      # TODO: Options to Add: aspectRatio, Resolution
       @config = Studio.config
+      model_id = model || @config.default_model
+      with_model(model_id, provider: provider)
       @client ||= OpenAI::Client.new
       @output_dir = output_dir || @config.output_directory
     end
 
-    def create(prompt: nil, **options)
-      @client.videos.create({ prompt: prompt }.merge(options))
+    def create(prompt: nil)
+      # TODO: Options to Add: Duration, Image
+      @client.videos.create(model: @model, prompt: prompt)
     end
 
     def download(id: nil)
@@ -30,6 +31,15 @@ module Studio
 
     def get(id: nil)
       @client.videos.retrieve(id)
+    end
+
+    def remix(id: nil, prompt: nil)
+      @client.videos.remix(id, prompt: prompt)
+    end
+
+    def with_model(model_id, provider: nil)
+      @model, @provider = Models.resolve(model_id, provider:, config: @config)
+      self
     end
   end
 end

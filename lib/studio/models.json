@@ -1,0 +1,36 @@
+[
+  {
+    "id": "sora-2",
+    "name": "Sora 2",
+    "provider": "openai",
+    "family": "sora",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "audio",
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "sora-2-pro",
+    "name": "Sora 2 Pro",
+    "provider": "openai",
+    "family": "sora",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "audio",
+        "video"
+      ]
+    }
+  }
+]
