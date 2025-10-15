@@ -15,7 +15,7 @@ module Studio
       @output_dir = output_dir || @config.output_directory
     end
 
-    def create(prompt: nil)
+    def create(prompt = nil)
       # TODO: Options to Add: Duration, Image
       @client.videos.create(model: @model, prompt: prompt)
     end
