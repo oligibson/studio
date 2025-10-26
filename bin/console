@@ -11,6 +11,7 @@ require 'studio'
 
 Studio.configure do |config|
   config.openai_api_key = ENV.fetch('OPENAI_API_KEY', nil)
+  config.gemini_api_key = ENV.fetch('GEMINI_API_KEY', nil)
 end
 
 IRB.start(__FILE__)

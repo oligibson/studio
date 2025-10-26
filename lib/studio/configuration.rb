@@ -4,6 +4,7 @@ module Studio
   # Global Config
   class Configuration
     attr_accessor :openai_api_key,
+                  :gemini_api_key,
                   :default_model,
                   :output_directory
 

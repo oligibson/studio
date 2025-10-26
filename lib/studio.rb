@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require 'fileutils'
+require 'faraday'
+require 'faraday/follow_redirects'
 require 'json'
-require 'openai'
 require 'zeitwerk'
 
 module Studio
@@ -19,6 +20,10 @@ module Studio
       Models.instance
     end
 
+    def providers
+      Provider.providers.values
+    end
+
     def configure
       yield config
     end
@@ -28,3 +33,6 @@ module Studio
     end
   end
 end
+
+Studio::Provider.register :openai, Studio::Providers::Openai
+Studio::Provider.register :gemini, Studio::Providers::Gemini

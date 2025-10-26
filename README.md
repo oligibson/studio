@@ -11,6 +11,7 @@ Configure your API keys:
 ```ruby
 Studio.configure do |config|
   config.openai_api_key = ENV['OPENAI_API_KEY']
+  config.gemini_api_key = ENV['GEMINI_API_KEY']
 end
 ```
 ## Working with Studio
@@ -24,12 +25,9 @@ video.download('video_id')
 ```
 ```ruby
 # Get details about the video
-video.get('video_id')
+video.status('video_id')
 ```
-```ruby
-# Remix the video
-video.remix('video_id', 'A cat playing piano in the street')
-```
+
 ## Configuration
 ```ruby
 # Change the default model used for a video and the download location

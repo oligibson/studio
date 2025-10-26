@@ -32,5 +32,89 @@
         "video"
       ]
     }
+  },
+  {
+    "id": "veo-3.1-generate-preview",
+    "name": "Veo 3.1 Preview",
+    "provider": "gemini",
+    "family": "veo",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "audio",
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "veo-3.1-fast-generate-preview",
+    "name": "Veo 3.1 Fast Preview",
+    "provider": "gemini",
+    "family": "veo",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "audio",
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "veo-3.0-generate-001",
+    "name": "Veo 3",
+    "provider": "gemini",
+    "family": "veo",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "audio",
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "veo-3.0-fast-generate-001",
+    "name": "Veo 3 Fast",
+    "provider": "gemini",
+    "family": "veo",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "audio",
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "veo-2.0-generate-001",
+    "name": "Veo 2",
+    "provider": "gemini",
+    "family": "veo",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
   }
 ]

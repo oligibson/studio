@@ -6,5 +6,6 @@ group :development do
   gem 'irb'
 end
 
-gem 'openai'
+gem 'faraday'
+gem 'faraday-follow_redirects'
 gem 'zeitwerk'
