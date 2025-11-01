@@ -30,15 +30,14 @@ module Studio
       self.class.configuration_requirements
     end
 
-    def film(model:, prompt: nil)
-      payload = render_video_payload(prompt, model:)
+    def film(model:, seconds:, aspect_ratio:, prompt: nil)
+      payload = render_video_payload(prompt, model:, seconds:, aspect_ratio:)
       response = @connection.post video_url, payload
       parse_video_response(response)
     end
 
     def film_status(id, model:)
       url = status_url(id, model:)
-      puts url
       response = @connection.get url
       parse_status_response(response)
     end

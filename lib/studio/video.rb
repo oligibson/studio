@@ -6,17 +6,21 @@ module Studio
   class Video
     include Utils
 
-    def initialize(model: nil, provider: nil, output_dir: nil)
-      # TODO: Options to Add: aspectRatio, Resolution
+    attr_reader :aspect_ratio
+
+    def initialize(model: nil, provider: nil, output_dir: nil, aspect_ratio: nil)
+      # TODO: Options to Add: Resolution
       @config = Studio.config
       model_id = model || @config.default_model
       with_model(model_id, provider: provider)
       @output_dir = output_dir || @config.output_directory
+      ratio = aspect_ratio || @config.default_aspect_ratio
+      set_ratio(ratio)
     end
 
-    def create(prompt = nil)
-      # TODO: Options to Add: Duration, Image
-      @provider.film(prompt: prompt, model: @model)
+    def create(prompt = nil, seconds = 4)
+      # TODO: Options to Add: Image
+      @provider.film(prompt: prompt, seconds: seconds, aspect_ratio: @aspect_ratio, model: @model)
     end
 
     def status(id)
@@ -32,6 +36,14 @@ module Studio
 
     def with_model(model_id, provider: nil)
       @model, @provider = Models.resolve(model_id, provider:, config: @config)
+      self
+    end
+
+    def set_ratio(ratio)
+      normalized = ratio.to_s
+      raise ArgumentError, "Unsupported aspect ratio: #{ratio}" unless %w[16:9 9:16].include?(normalized)
+
+      @aspect_ratio = normalized
       self
     end
   end

@@ -27,13 +27,29 @@ video.download('video_id')
 # Get details about the video
 video.status('video_id')
 ```
-
-## Configuration
 ```ruby
-# Change the default model used for a video and the download location
-video = Studio.video('sora-2-pro', 'openai', 'tmp')
+# Change the default model used for a video, the download location, and the aspect ratio
+video = Studio.video('sora-2-pro', 'openai', 'tmp', "9:16")
 ```
 ```ruby
 # Change the model used for a specific video
 video.with_model('sora-2-pro').create 'A calico cat playing a piano on stage'
+```
+```ruby
+# Change the aspect ratio for a specific video
+video.set_ratio('16:9').create 'A calico cat playing a piano on stage'
+```
+```ruby
+# Change the length of video generated
+video.create(prompt='A calico cat playing a piano on stage', seconds: 8)
+```
+## Configure
+The aim is to be able to configure once and use everywhere, but be able to override if needed.
+
+```ruby
+Studio.configure do |config|
+  config.default_model = 'sora-2' # See models.json for avaliable id's
+  config.default_aspect_ratio = '9:16' # or '16:9' 
+  config.output_directory = 'videos'
+end
 ```

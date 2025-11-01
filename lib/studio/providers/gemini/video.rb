@@ -15,11 +15,17 @@ module Studio
           "models/#{model.id}/operations/#{id}"
         end
 
-        def render_video_payload(prompt, model:)
+        def download_url(id)
+          "files/#{id}:download?alt=media"
+        end
+
+        def render_video_payload(prompt, model:, seconds:, aspect_ratio:)
           @model = model.id
           {
             instances: [{
-              prompt: prompt
+              prompt: prompt,
+              durationSeconds: seconds.to_s,
+              aspectRatio: aspect_ratio
             }]
           }
         end
@@ -33,10 +39,6 @@ module Studio
         def parse_status_response(response)
           puts response
           response.body
-        end
-
-        def download_url(id)
-          "files/#{id}:download?alt=media"
         end
 
         def parse_download_response(response)

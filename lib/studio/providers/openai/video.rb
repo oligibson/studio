@@ -11,10 +11,13 @@ module Studio
           (['videos'] + segments.map(&:to_s)).join('/')
         end
 
-        def render_video_payload(prompt, model:)
+        def render_video_payload(prompt, model:, seconds:, aspect_ratio:)
+          size = aspect_ratio.to_s == '9:16' ? '720x1280' : '1280x720'
           {
             model: model.id,
-            prompt: prompt
+            prompt: prompt,
+            seconds: seconds.to_s,
+            size: size
           }
         end
 
