@@ -1,6 +1,6 @@
-# Studio
+# Ruby Studio
 
-A simple way to interface with video generating AI models
+Studio provides a unified Ruby interface for creating, monitoring, and downloading AI-generated videos. It currently supports OpenAI Sora and Google Gemini Veo and draws inspiration from the RubyLLM project.
 
 ## Installation
 Install the dependencies:
