@@ -32,6 +32,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'faraday', '>= 1.10.0'
-  spec.add_dependency 'faraday-follow_redirects', '>= 1.0'
+  spec.add_dependency 'faraday-follow_redirects', '>= 0.4.0'
   spec.add_dependency 'zeitwerk', '>= 2.6'
 end

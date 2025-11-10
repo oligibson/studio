@@ -31,6 +31,8 @@ module Studio
     end
 
     def film(model:, seconds:, aspect_ratio:, prompt: nil)
+      validate_parameters!(model_id: model.id, seconds:, aspect_ratio:)
+
       payload = render_video_payload(prompt, model:, seconds:, aspect_ratio:)
       response = @connection.post video_url, payload
       parse_video_response(response)

@@ -5,6 +5,7 @@ module Studio
     # OpenAI integration.
     class Openai < Provider
       include Openai::Video
+      include Openai::Capabilities
 
       def api_base
         'https://api.openai.com/v1'

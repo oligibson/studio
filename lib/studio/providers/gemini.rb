@@ -5,6 +5,7 @@ module Studio
     # Gemini integration.
     class Gemini < Provider
       include Gemini::Video
+      include Gemini::Capabilities
 
       def api_base
         'https://generativelanguage.googleapis.com/v1beta'
