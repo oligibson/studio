@@ -21,11 +21,11 @@ video.create 'A calico cat playing a piano on stage'
 ```
 ```ruby
 # Download a video
-video.download('video_id')
+video.save('path/to/file')
 ```
 ```ruby
 # Get details about the video
-video.status('video_id')
+video.status
 ```
 ```ruby
 # Change the default model used for a video, the download location, and the aspect ratio

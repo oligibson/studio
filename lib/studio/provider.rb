@@ -35,7 +35,7 @@ module Studio
 
       payload = render_video_payload(prompt, model:, seconds:, aspect_ratio:)
       response = @connection.post video_url, payload
-      parse_video_response(response)
+      parse_video_response(response, prompt: prompt, model: model)
     end
 
     def film_status(id, model:)
@@ -44,8 +44,8 @@ module Studio
       parse_status_response(response)
     end
 
-    def download(id)
-      url = download_url(id)
+    def download(id, model: nil)
+      url = download_url(id, model:)
       response = @connection.get url
       parse_download_response(response)
     end

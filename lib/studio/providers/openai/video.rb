@@ -25,13 +25,18 @@ module Studio
           video_url(id)
         end
 
-        def download_url(id)
+        def download_url(id, model: nil)
           video_url(id, 'content')
         end
 
-        def parse_video_response(response)
-          # TODO: Create a new object with methods to manipulate video
-          response.body
+        def parse_video_response(response, prompt: nil, model: nil)
+          data = response.body
+
+          Film.new(
+            id: data['id'],
+            model_id: data['model'] || model&.id,
+            prompt: data['prompt'] || prompt
+          )
         end
 
         def parse_status_response(response)

@@ -28,7 +28,7 @@ module Studio
     end
 
     def download(id)
-      response = @provider.download(id)
+      response = @provider.download(id, model: @model)
       file_path = prepare_output_path(@output_dir, id)
       write_stream(response, file_path)
       file_path
