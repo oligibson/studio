@@ -21,11 +21,11 @@ module Studio
           }
         end
 
-        def status_url(id, model:)
+        def status_url(id, model: nil) # rubocop:disable Lint/UnusedMethodArgument
           video_url(id)
         end
 
-        def download_url(id, model: nil)
+        def download_url(id, model: nil) # rubocop:disable Lint/UnusedMethodArgument
           video_url(id, 'content')
         end
 

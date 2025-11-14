@@ -7,11 +7,11 @@ module Studio
       module Capabilities
         module_function
 
-        def supported_aspect_ratios(model_id)
+        def supported_aspect_ratios
           ['16:9', '9:16']
         end
 
-        def supported_resolutions(model_id)
+        def supported_resolutions
           %w[1080p 720p]
         end
 

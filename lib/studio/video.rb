@@ -15,7 +15,7 @@ module Studio
       with_model(model_id, provider: provider)
       @output_dir = output_dir || @config.output_directory
       ratio = aspect_ratio || @config.default_aspect_ratio
-      set_ratio(ratio)
+      with_ratio(ratio)
     end
 
     def create(prompt = nil, seconds = 4)
@@ -39,7 +39,7 @@ module Studio
       self
     end
 
-    def set_ratio(ratio)
+    def with_ratio(ratio)
       normalized = ratio.to_s
       raise ArgumentError, "Unsupported aspect ratio: #{ratio}" unless %w[16:9 9:16].include?(normalized)
 

@@ -17,7 +17,7 @@ end
 ## Working with Studio
 ```ruby
 video = Studio.video
-video.create 'A calico cat playing a piano on stage' 
+video.create 'A calico cat playing a piano on stage'
 ```
 ```ruby
 # Download a video
@@ -37,7 +37,7 @@ video.with_model('sora-2-pro').create 'A calico cat playing a piano on stage'
 ```
 ```ruby
 # Change the aspect ratio for a specific video
-video.set_ratio('16:9').create 'A calico cat playing a piano on stage'
+video.with_ratio('16:9').create 'A calico cat playing a piano on stage'
 ```
 ```ruby
 # Change the length of video generated
@@ -49,7 +49,7 @@ The aim is to be able to configure once and use everywhere, but be able to overr
 ```ruby
 Studio.configure do |config|
   config.default_model = 'sora-2' # See models.json for avaliable id's
-  config.default_aspect_ratio = '9:16' # or '16:9' 
+  config.default_aspect_ratio = '9:16' # or '16:9'
   config.output_directory = 'videos'
 end
 ```

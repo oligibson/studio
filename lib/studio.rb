@@ -6,6 +6,7 @@ require 'faraday/follow_redirects'
 require 'json'
 require 'zeitwerk'
 
+# A Ruby interface to AI Video Generation models.
 module Studio
   Loader = Zeitwerk::Loader.new
   Loader.push_dir(File.join(__dir__, 'studio'), namespace: self)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# File Utilities shared across Studio components
 module Studio
+  # File Utilities shared across Studio components
   module Utils
     def prepare_output_path(output_dir, video_id)
       FileUtils.mkdir_p(output_dir)

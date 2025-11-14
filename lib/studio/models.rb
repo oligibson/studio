@@ -37,7 +37,7 @@ module Studio
       end
 
       def load_models
-        read_from_json
+        @models = read_from_json
       end
 
       def read_from_json
@@ -47,7 +47,7 @@ module Studio
         []
       end
 
-      def all
+      def models
         @models ||= load_models
       end
 
@@ -70,12 +70,12 @@ module Studio
       end
 
       def find_with_provider(model_id, provider)
-        all.find { |m| m.id == model_id && m.provider == provider.to_s } ||
+        models.find { |m| m.id == model_id && m.provider == provider.to_s } ||
           raise(Studio::Errors::ModelNotFoundError, "Model '#{model_id}' not found with provider '#{provider}'")
       end
 
       def find_without_provider(model_id)
-        all.find { |m| m.id == model_id } ||
+        models.find { |m| m.id == model_id } ||
           raise(Studio::Errors::ModelNotFoundError, "Model '#{model_id}' not found")
       end
     end

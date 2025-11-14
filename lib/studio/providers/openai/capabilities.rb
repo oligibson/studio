@@ -7,11 +7,11 @@ module Studio
       module Capabilities
         module_function
 
-        def supported_aspect_ratios(model_id)
+        def supported_aspect_ratios
           ['16:9', '9:16']
         end
 
-        def validate_parameters!(model_id:, seconds:, aspect_ratio:)
+        def validate_parameters!(model_id:, seconds:, aspect_ratio:) # rubocop:disable Lint/UnusedMethodArgument
           ensure_supported!(input: aspect_ratio, parameter: 'aspect ratio', allowed: supported_aspect_ratios(model_id))
         end
 
