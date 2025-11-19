@@ -4,6 +4,7 @@ require 'fileutils'
 require 'faraday'
 require 'faraday/follow_redirects'
 require 'json'
+require 'jwt'
 require 'zeitwerk'
 
 # A Ruby interface to AI Video Generation models.
@@ -37,3 +38,4 @@ end
 
 Studio::Provider.register :openai, Studio::Providers::Openai
 Studio::Provider.register :gemini, Studio::Providers::Gemini
+Studio::Provider.register :kling, Studio::Providers::Kling

@@ -13,6 +13,7 @@ module Studio
       @id = id
       @prompt = prompt
       @model_id = model_id
+      @output_dir = @config.output_directory
       with_model(model_id)
     end
 

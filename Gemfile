@@ -15,4 +15,5 @@ end
 
 gem 'faraday'
 gem 'faraday-follow_redirects'
+gem 'jwt', '~> 3.1'
 gem 'zeitwerk'

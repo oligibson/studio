@@ -1,6 +1,6 @@
 # Ruby Studio
 
-Studio provides a unified Ruby interface for creating, monitoring, and downloading AI-generated videos. It currently supports OpenAI Sora and Google Gemini Veo and draws inspiration from the RubyLLM project.
+Studio provides a unified Ruby interface for creating, monitoring, and downloading AI-generated videos. It currently supports OpenAI Sora, Google Gemini Veo and KlingAI Video Models. It draws inspiration from the RubyLLM project.
 
 ## Installation
 Install the dependencies:
@@ -12,6 +12,8 @@ Configure your API keys:
 Studio.configure do |config|
   config.openai_api_key = ENV['OPENAI_API_KEY']
   config.gemini_api_key = ENV['GEMINI_API_KEY']
+  config.kling_access_key = ENV['KLING_ACCESS_KEY']
+  config.kling_secret_key = ENV['KLING_SECRET_KEY']
 end
 ```
 ## Working with Studio
@@ -29,7 +31,7 @@ video.status
 ```
 ```ruby
 # Change the default model used for a video, the download location, and the aspect ratio
-video = Studio.video('sora-2-pro', 'openai', 'tmp', "9:16")
+video = Studio.video(model: 'sora-2-pro', provider: 'openai', output_dir:'tmp', aspect_ratio: "9:16")
 ```
 ```ruby
 # Change the model used for a specific video
@@ -41,7 +43,7 @@ video.with_ratio('16:9').create 'A calico cat playing a piano on stage'
 ```
 ```ruby
 # Change the length of video generated
-video.create(prompt='A calico cat playing a piano on stage', seconds: 8)
+video.create('A calico cat playing a piano on stage', seconds: 8)
 ```
 ## Configure
 The aim is to be able to configure once and use everywhere, but be able to override if needed.

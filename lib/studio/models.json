@@ -116,5 +116,101 @@
         "video"
       ]
     }
+  },
+  {
+    "id": "kling-v1",
+    "name": "Kling 1",
+    "provider": "kling",
+    "family": "Kling",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "kling-v1-5",
+    "name": "Kling 1.5",
+    "provider": "kling",
+    "family": "Kling",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "kling-v1-6",
+    "name": "Kling 1.6",
+    "provider": "kling",
+    "family": "Kling",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "kling-v2-master",
+    "name": "Kling 2.0",
+    "provider": "kling",
+    "family": "Kling",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "kling-v2-1-master",
+    "name": "Kling 2.1",
+    "provider": "kling",
+    "family": "Kling",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
+  },
+  {
+    "id": "kling-v2-5-turbo",
+    "name": "Kling 2.5",
+    "provider": "kling",
+    "family": "Kling",
+    "created_at": null,
+    "modalities": {
+      "input": [
+        "image",
+        "text"
+      ],
+      "output": [
+        "video"
+      ]
+    }
   }
 ]

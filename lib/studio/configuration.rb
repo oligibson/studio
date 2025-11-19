@@ -5,6 +5,8 @@ module Studio
   class Configuration
     attr_accessor :openai_api_key,
                   :gemini_api_key,
+                  :kling_access_key,
+                  :kling_secret_key,
                   :default_model,
                   :output_directory,
                   :default_aspect_ratio

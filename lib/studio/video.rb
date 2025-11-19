@@ -18,7 +18,7 @@ module Studio
       with_ratio(ratio)
     end
 
-    def create(prompt = nil, seconds = 4)
+    def create(prompt = nil, seconds: 4)
       # TODO: Options to Add: Image
       @provider.film(prompt: prompt, seconds: seconds, aspect_ratio: @aspect_ratio, model: @model)
     end
