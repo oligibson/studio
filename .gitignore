@@ -1,6 +1,8 @@
 .DS_Store
 .env
+.rspec_status
 Gemfile.lock
+/coverage/
 /.ruby_lsp/
 /videos/
 /.bundle/

@@ -6,7 +6,7 @@ module Studio
   class Video
     include Utils
 
-    attr_reader :aspect_ratio
+    attr_reader :model, :aspect_ratio
 
     def initialize(model: nil, provider: nil, output_dir: nil, aspect_ratio: nil)
       # TODO: Options to Add: Resolution

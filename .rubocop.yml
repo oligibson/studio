@@ -1,5 +1,6 @@
 plugins:
   - rubocop-performance
+  - rubocop-rspec
 
 AllCops:
   NewCops: enable
@@ -29,3 +30,9 @@ Performance/StringInclude:
 Performance/UnfreezeString:
   Exclude:
     - spec/**/*
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/LeakyLocalVariable:
+  Enabled: false

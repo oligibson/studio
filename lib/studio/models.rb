@@ -3,6 +3,8 @@
 module Studio
   # Registry of avaliable AI Video Generation Models
   class Models
+    include Enumerable
+
     Info = Data.define(:id, :name, :provider, :family, :created_at, :modalities)
 
     class << self
@@ -15,29 +17,8 @@ module Studio
       end
 
       def resolve(model_id, provider: nil, config: nil)
-        config ||= Studio.config
-
-        model = find(model_id, provider)
-        provider_class = Provider.providers[model.provider.to_sym] || raise(Error,
-                                                                            "Unknown provider: #{model.provider}")
-        provider_instance = provider_class.new(config)
-        [model, provider_instance]
-      end
-
-      def find(model_id, provider = nil)
-        if provider
-          find_with_provider(model_id, provider)
-        else
-          find_without_provider(model_id)
-        end
-      end
-
-      def initialize(models = nil)
-        @models = models || load_models
-      end
-
-      def load_models
-        @models = read_from_json
+        # TODO: Create a model instance so that this returns a concistant object
+        instance.resolve(model_id, provider: provider, config: config)
       end
 
       def read_from_json
@@ -48,7 +29,19 @@ module Studio
       end
 
       def models
-        @models ||= load_models
+        instance.models
+      end
+
+      def method_missing(method, ...)
+        if instance.respond_to?(method)
+          instance.public_send(method, ...)
+        else
+          super
+        end
+      end
+
+      def respond_to_missing?(method, include_private = false)
+        instance.respond_to?(method, include_private) || super
       end
 
       private
@@ -68,16 +61,56 @@ module Studio
           modalities: attributes[:modalities] || {}
         }
       end
+    end
 
-      def find_with_provider(model_id, provider)
-        models.find { |m| m.id == model_id && m.provider == provider.to_s } ||
-          raise(Studio::Errors::ModelNotFoundError, "Model '#{model_id}' not found with provider '#{provider}'")
-      end
+    def initialize(models = nil)
+      @models = models || self.class.read_from_json
+    end
 
-      def find_without_provider(model_id)
-        models.find { |m| m.id == model_id } ||
-          raise(Studio::Errors::ModelNotFoundError, "Model '#{model_id}' not found")
+    def resolve(model_id, provider: nil, config: nil)
+      config ||= Studio.config
+
+      model = find(model_id, provider)
+      provider_class = Provider.providers[model.provider.to_sym] || raise(Error,
+                                                                          "Unknown provider: #{model.provider}")
+      provider_instance = provider_class.new(config)
+      [model, provider_instance]
+    end
+
+    def find(model_id, provider = nil)
+      if provider
+        find_with_provider(model_id, provider)
+      else
+        find_without_provider(model_id)
       end
+    end
+
+    def by_provider(provider)
+      self.class.new(@models.select { |m| m.provider == provider.to_s })
+    end
+
+    def load_models
+      @models = self.class.read_from_json
+    end
+
+    def all
+      @models
+    end
+
+    def each(&)
+      @models.each(&)
+    end
+
+    private
+
+    def find_with_provider(model_id, provider)
+      @models.find { |m| m.id == model_id && m.provider == provider.to_s } ||
+        raise(Studio::Errors::ModelNotFoundError, "Model '#{model_id}' not found with provider '#{provider}'")
+    end
+
+    def find_without_provider(model_id)
+      @models.find { |m| m.id == model_id } ||
+        raise(Studio::Errors::ModelNotFoundError, "Model '#{model_id}' not found")
     end
   end
 end
