@@ -24,7 +24,7 @@ module Studio
         end
 
         def validate_parameters!(model_id:, seconds:, aspect_ratio:)
-          ensure_supported!(input: aspect_ratio, parameter: 'aspect ratio', allowed: supported_aspect_ratios(model_id))
+          ensure_supported!(input: aspect_ratio, parameter: 'aspect ratio', allowed: supported_aspect_ratios)
           ensure_supported!(input: seconds, parameter: 'duration', allowed: supported_durations(model_id))
         end
 
