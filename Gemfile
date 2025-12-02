@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 group :development do
+  gem 'activesupport', '~> 8.1'
   gem 'bundler', '>= 2.0'
   gem 'codecov', '~> 0.2.12'
   gem 'dotenv'
@@ -15,6 +16,8 @@ group :development do
   gem 'rubocop-performance', '~> 1.26'
   gem 'rubocop-rspec', '~> 3.8'
   gem 'simplecov', '~> 0.22.0'
+  gem 'vcr', '~> 6.3'
+  gem 'webmock', '~> 3.26'
 end
 
 gem 'faraday'

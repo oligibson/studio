@@ -31,7 +31,7 @@ module Studio
 
         def parse_video_response(response, prompt: nil, model: nil)
           data = response.body
-
+          puts data
           Film.new(
             id: data['data']['task_id'],
             model_id: model&.id,

@@ -12,7 +12,7 @@ module Studio
         end
 
         def validate_parameters!(model_id:, seconds:, aspect_ratio:) # rubocop:disable Lint/UnusedMethodArgument
-          ensure_supported!(input: aspect_ratio, parameter: 'aspect ratio', allowed: supported_aspect_ratios(model_id))
+          ensure_supported!(input: aspect_ratio, parameter: 'aspect ratio', allowed: supported_aspect_ratios)
         end
 
         def ensure_supported!(input:, parameter:, allowed:)

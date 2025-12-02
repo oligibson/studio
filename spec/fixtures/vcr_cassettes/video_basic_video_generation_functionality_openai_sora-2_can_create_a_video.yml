@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/videos
+    body:
+      encoding: UTF-8
+      string: '{"model":"sora-2","prompt":"A calico cat playing a piano on stage","seconds":"4","size":"720x1280"}'
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 02 Dec 2025 11:51:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - req_9a7691d09b9048d8849db0d3f38b77b5
+      Openai-Processing-Ms:
+      - '1873'
+      X-Envoy-Upstream-Service-Time:
+      - '1876'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9a7a9cacc8c8779a-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "video_692ed2bc282c8198b601f33fa73a66ae030a205da01d1113",
+          "object": "video",
+          "created_at": 1764676284,
+          "status": "queued",
+          "completed_at": null,
+          "error": null,
+          "expires_at": null,
+          "model": "sora-2",
+          "progress": 0,
+          "prompt": "A calico cat playing a piano on stage",
+          "remixed_from_video_id": null,
+          "seconds": "4",
+          "size": "720x1280"
+        }
+  recorded_at: Tue, 02 Dec 2025 11:51:24 GMT
+recorded_with: VCR 6.3.1

@@ -29,13 +29,12 @@ VCR.configure do |config|
     interaction.response.headers['Openai-Organization']&.first
   end
 
-  config.filter_sensitive_data('<OPENAI_Project>') do |interaction|
+  config.filter_sensitive_data('<OPENAI_PROJECT>') do |interaction|
     interaction.response.headers['Openai-Project']&.first
   end
 
   # Filter cookies
   config.before_record do |interaction|
-    # Filter out the generated JWT from recorded cassettes
     if interaction.request.uri.include?('klingai.com')
       headers = interaction.request.headers['Authorization']
       next unless headers

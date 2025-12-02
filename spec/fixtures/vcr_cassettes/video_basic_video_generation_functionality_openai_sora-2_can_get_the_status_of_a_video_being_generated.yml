@@ -1,0 +1,153 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/videos
+    body:
+      encoding: UTF-8
+      string: '{"model":"sora-2","prompt":"A calico cat playing a piano on stage","seconds":"4","size":"720x1280"}'
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 02 Dec 2025 11:51:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - req_1dd657e3875745fcaa66ae959954216f
+      Openai-Processing-Ms:
+      - '4587'
+      X-Envoy-Upstream-Service-Time:
+      - '4590'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9a7a9cbb7fecd1f7-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "video_692ed2c138788191a22bb5cfd7f2db1d007255f00f8ac097",
+          "object": "video",
+          "created_at": 1764676289,
+          "status": "queued",
+          "completed_at": null,
+          "error": null,
+          "expires_at": null,
+          "model": "sora-2",
+          "progress": 0,
+          "prompt": "A calico cat playing a piano on stage",
+          "remixed_from_video_id": null,
+          "seconds": "4",
+          "size": "720x1280"
+        }
+  recorded_at: Tue, 02 Dec 2025 11:51:29 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/videos/video_692ed2c138788191a22bb5cfd7f2db1d007255f00f8ac097
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 02 Dec 2025 11:51:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - req_fe95390c42e84b2e9ff4b26a0858bfc1
+      Openai-Processing-Ms:
+      - '757'
+      X-Envoy-Upstream-Service-Time:
+      - '759'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9a7a9cdbccfa88bb-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "video_692ed2c138788191a22bb5cfd7f2db1d007255f00f8ac097",
+          "object": "video",
+          "created_at": 1764676289,
+          "status": "in_progress",
+          "completed_at": null,
+          "error": null,
+          "expires_at": null,
+          "model": "sora-2",
+          "progress": 0,
+          "prompt": "A calico cat playing a piano on stage",
+          "remixed_from_video_id": null,
+          "seconds": "4",
+          "size": "720x1280"
+        }
+  recorded_at: Tue, 02 Dec 2025 11:51:30 GMT
+recorded_with: VCR 6.3.1

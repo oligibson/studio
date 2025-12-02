@@ -11,6 +11,14 @@ module Studio
           (['videos'] + segments.map(&:to_s)).join('/')
         end
 
+        def status_url(id, model: nil) # rubocop:disable Lint/UnusedMethodArgument
+          video_url(id)
+        end
+
+        def download_url(id, model: nil) # rubocop:disable Lint/UnusedMethodArgument
+          video_url(id, 'content')
+        end
+
         def render_video_payload(prompt, model:, seconds:, aspect_ratio:)
           size = aspect_ratio.to_s == '9:16' ? '720x1280' : '1280x720'
           {
@@ -19,14 +27,6 @@ module Studio
             seconds: seconds.to_s,
             size: size
           }
-        end
-
-        def status_url(id, model: nil) # rubocop:disable Lint/UnusedMethodArgument
-          video_url(id)
-        end
-
-        def download_url(id, model: nil) # rubocop:disable Lint/UnusedMethodArgument
-          video_url(id, 'content')
         end
 
         def parse_video_response(response, prompt: nil, model: nil)

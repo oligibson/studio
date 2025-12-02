@@ -10,4 +10,15 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.around do |example|
+    cassette_name = example.full_description.parameterize(separator: '_').delete_prefix('studio_')
+    cassette_path = File.join(VCR.configuration.cassette_library_dir, "#{cassette_name}.yml")
+
+    VCR.use_cassette(cassette_name) do
+      example.run
+    end
+
+    FileUtils.rm_f(cassette_path) if example.exception
+  end
 end
